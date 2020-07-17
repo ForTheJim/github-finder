@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
+import Navbar from './Components/Navbar'
 import './App.css';
 
 class App extends Component {
+
+  // Call this with this.functionOfClass
+  //  functionOfClass =()=> 'Fnction of Class, call with this.functionName';
+
   //lifecycle method
   render(){
+
     return (
-      <div className="App">
-        <h1>Hello from React</h1>
-      </div>
+      <>
+        <Navbar></Navbar>
+        </>
     );
   }
 
