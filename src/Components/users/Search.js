@@ -1,41 +1,49 @@
-import React, { Component } from "react";
-import Proptypes from "prop-types";
+import React, { useState, useContext } from "react";
+import GithubContext from "../../context/github/githubContext";
+import AlertContext from "../../context/alert/alertContext";
 
-export class Search extends Component {
-  state = {
-    text: "",
+const Search = () => {
+  const githubContext = useContext(GithubContext);
+  const alertContext = useContext(AlertContext);
+  const [text, setText] = useState("");
+
+  const onChange = (event) => {
+    console.log(event.target.value);
+    setText(event.target.value);
   };
 
-  static propTypes = {
-    searchUsers: Proptypes.func.isRequired,
-  };
-
-  onChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  onSubmit = (event) => {
+  const onSubmit = (event) => {
     event.preventDefault();
-    this.props.searchUsers(this.state.text);
-    this.setState({ text: "" });
+    if (text === "") {
+      alertContext.setAlert("Please enter something", "light");
+    } else {
+      githubContext.searchUsers(text);
+      console.log("THIS IS TEXT " + text);
+      setText("");
+    }
   };
-  render() {
-    return (
-      <div>
-        <form className="form" onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            name="text"
-            placeholder="Find User"
-            value={this.state.text}
-            onChange={this.onChange}></input>
-          <button type="submit" value="Search" className="btn">
-            Search
+  return (
+    <div>
+      <form className="form" onSubmit={onSubmit}>
+        <input
+          type="text"
+          name="text"
+          placeholder="Find User"
+          value={text}
+          onChange={onChange}></input>
+        <button type="submit" value="Search" className="btn">
+          Search
+        </button>
+        {githubContext.users.length > 0 && (
+          <button
+            className="btn btn-light btn-block"
+            onClick={githubContext.clearUsers}>
+            Clear
           </button>
-        </form>
-      </div>
-    );
-  }
-}
+        )}
+      </form>
+    </div>
+  );
+};
 
 export default Search;
