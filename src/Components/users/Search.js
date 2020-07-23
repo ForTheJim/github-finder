@@ -8,7 +8,6 @@ const Search = () => {
   const [text, setText] = useState("");
 
   const onChange = (event) => {
-    console.log(event.target.value);
     setText(event.target.value);
   };
 
@@ -18,7 +17,6 @@ const Search = () => {
       alertContext.setAlert("Please enter something", "light");
     } else {
       githubContext.searchUsers(text);
-      console.log("THIS IS TEXT " + text);
       setText("");
     }
   };
