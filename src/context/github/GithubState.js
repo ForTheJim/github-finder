@@ -11,7 +11,6 @@ import {
   GET_USER,
   GET_REPOS,
 } from "../types";
-import githubContext from "./githubContext";
 
 const GithubState = (props) => {
   const initialState = {
