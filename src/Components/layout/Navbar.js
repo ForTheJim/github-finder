@@ -4,18 +4,13 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ icon, title }) => {
   return (
-    <nav className="navbar bg-primary">
-      <i className={icon}> {title}</i>
-      <h1>Navbar</h1>
-
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+    <nav className="navbar w-full bg-indigo-700">
+      <Link
+        to="/"
+        alt="Home"
+        className="text-gray-200 p-3 block text-center md:text-left text-3xl md:text-lg">
+        <i className={icon}> </i> {title}
+      </Link>
     </nav>
   );
 };
