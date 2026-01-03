@@ -10,7 +10,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "npm run watch:css && react-scripts start",
@@ -36,7 +36,8 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.5",
+    "@tailwindcss/postcss": "^4.1.18",
+    "autoprefixer": "^10.4.23",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -46,8 +47,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.0",
-    "postcss-cli": "^7.1.1",
+    "postcss-cli": "^11.0.1",
     "prettier": "^2.0.5",
-    "tailwindcss": "^1.5.2"
+    "tailwindcss": "^4.1.18"
   }
 }
